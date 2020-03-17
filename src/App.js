@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+
+const BASAL_METABOLIC_RATE = 1470;
+const CALORIE_LOWER_LIMIT = 1.3;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+      <Welcome name="Edite" />
+      <div className="container">
+        <Input
+          type="number"
+          value={BASAL_METABOLIC_RATE}
+          name="basal_metabolic_rate"
+          title="基礎代謝"
+        />
+      </div>
+    </>
+  );
+}
+
+function Input(props) {
+  const [state, setState] = useState(BASAL_METABOLIC_RATE);
+
+  const [calorie, calcCaroie] = useState(BASAL_METABOLIC_RATE);
+
+  const handleCalcCaroie = event => {
+    calcCaroie(event.target.value * CALORIE_LOWER_LIMIT);
+  };
+  return (
+    <div className="form-input">
+      <div className="form-input">
+        <label htmlFor={props.name} className="required">
+          {props.title}
+        </label>
+        <input
+          type={props.type}
+          name={props.name}
+          id={props.name}
+          value={state}
+          onChange={event => calcCaroie(event.target.value)}
+        />
+        <p className="mytext">{calorie}</p>
+      </div>
     </div>
   );
+}
+
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
 }
 
 export default App;
