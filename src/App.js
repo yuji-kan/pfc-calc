@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const BASAL_METABOLIC_RATE = 1470;
 const CALORIE_LOWER_LIMIT = 1.3;
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
       <div className="container">
         <Input
           type="number"
-          value={BASAL_METABOLIC_RATE}
           name="basal_metabolic_rate"
           title="基礎代謝"
         />
@@ -21,9 +19,8 @@ function App() {
 }
 
 function Input(props) {
-  const [state, setState] = useState(BASAL_METABOLIC_RATE);
 
-  const [calorie, calcCaroie] = useState(BASAL_METABOLIC_RATE);
+  const [calorie, calcCaroie] = useState();
 
   const handleCalcCaroie = event => {
     calcCaroie(event.target.value * CALORIE_LOWER_LIMIT);
@@ -38,8 +35,7 @@ function Input(props) {
           type={props.type}
           name={props.name}
           id={props.name}
-          value={state}
-          onChange={event => calcCaroie(event.target.value)}
+          onChange={handleCalcCaroie}
         />
         <p className="mytext">{calorie}</p>
       </div>
