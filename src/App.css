@@ -607,7 +607,10 @@ input.error {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+h1 {
+  color: #fff;
+  font-size: 18px;
+}
 .mytext {
   color: #000;
 }
