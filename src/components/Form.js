@@ -19,7 +19,7 @@ function Form(props) {
       <div className="form-input">
         <div className="form-input">
           <label htmlFor="basalMetabolicRate" className="required">
-            基礎代謝(1000-4000kcal)
+            基礎代謝(1000-2500kcal)
           </label>
           <input
             value={basalMetabolicRate}
@@ -27,7 +27,7 @@ function Form(props) {
             name="basalMetabolicRate"
             id="basalMetabolicRate"
             min={1000}
-            max={4000}
+            max={2500}
             onChange={e => setBasalMetabolicRate(e.target.value)}
           />
         </div>
@@ -52,7 +52,7 @@ function Form(props) {
       <div className="form-input">
         <div className="form-input">
           <label htmlFor="bodyWeight" className="required">
-            体重(kg)
+            体重(40-140kg)
           </label>
           <input
             value={bodyWeight}
@@ -60,7 +60,7 @@ function Form(props) {
             name="bodyWeight"
             id="bodyWeight"
             min={40}
-            max={90}
+            max={140}
             onChange={e => setbodyWeight(e.target.value)}
           />
         </div>
@@ -68,7 +68,7 @@ function Form(props) {
       <div className="form-input">
         <div className="form-input">
           <label htmlFor="bodyFat" className="required">
-            体脂肪(%)
+            体脂肪(3-25%)
           </label>
           <input
             value={bodyFat}
@@ -76,7 +76,7 @@ function Form(props) {
             name="bodyFat"
             id="bodyFat"
             min={3}
-            max={25}
+            max={40}
             onChange={e => setBodyFat(e.target.value)}
           />
         </div>
