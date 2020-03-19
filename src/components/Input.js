@@ -1,7 +1,8 @@
 import React from "react";
 // import React, { useState } from "react";
 
-function Input(props) {
+function Input(props, handleInputChange) {
+  // console.log(props.readonly);
   return (
     <div className="form-input">
       <div className="form-input">
@@ -15,7 +16,9 @@ function Input(props) {
           type={props.type}
           name={props.name}
           id={props.name}
-          value={props.value}
+          min={props.minValue}
+          max={props.maxValue}
+          onChange={handleInputChange}
         />
       </div>
     </div>
