@@ -15,12 +15,12 @@ function Form(props) {
       carbo: 0
     }
   };
-  const [basalMetabolicRate, setBasalMetabolicRate] = useState(1500);
-  const [intakeCoefficient, setIntakeCoefficient] = useState(1.3);
-  const [bodyWeight, setbodyWeight] = useState(67);
-  const [bodyFat, setBodyFat] = useState(16);
-  const [proteinCoefficient, setProteinCoefficient] = useState(2.5);
-  const [mealTimes, setMealTimes] = useState(3);
+  const [basalMetabolicRate, setBasalMetabolicRate] = useState("");
+  const [intakeCoefficient, setIntakeCoefficient] = useState("");
+  const [bodyWeight, setbodyWeight] = useState("");
+  const [bodyFat, setBodyFat] = useState("");
+  const [proteinCoefficient, setProteinCoefficient] = useState("");
+  const [mealTimes, setMealTimes] = useState("");
 
   const submitHandler = e => {
     e.preventDefault();
@@ -40,7 +40,6 @@ function Form(props) {
                 基礎代謝(1000-2500kcal)
               </label>
               <input
-                value={basalMetabolicRate}
                 type="number"
                 name="basalMetabolicRate"
                 id="basalMetabolicRate"
@@ -56,7 +55,6 @@ function Form(props) {
                 摂取係数(1.3-1.7)
               </label>
               <input
-                value={intakeCoefficient}
                 type="number"
                 name="intakeCoefficient"
                 id="intakeCoefficient"
@@ -73,7 +71,6 @@ function Form(props) {
                 体重(40-140kg)
               </label>
               <input
-                value={bodyWeight}
                 type="number"
                 name="bodyWeight"
                 id="bodyWeight"
@@ -89,7 +86,6 @@ function Form(props) {
                 体脂肪(3-25%)
               </label>
               <input
-                value={bodyFat}
                 type="number"
                 name="bodyFat"
                 id="bodyFat"
@@ -105,7 +101,6 @@ function Form(props) {
                 タンパク質摂取係数(2-2.5)
               </label>
               <input
-                value={proteinCoefficient}
                 type="number"
                 name="proteinCoefficient"
                 id="proteinCoefficient"
@@ -122,7 +117,6 @@ function Form(props) {
                 1日の食事回数(3-6回)
               </label>
               <input
-                value={mealTimes}
                 type="number"
                 name="mealTimes"
                 id="mealTimes"
@@ -151,6 +145,7 @@ function Form(props) {
               type="number"
               name="leanBodyMass"
               id="leanBodyMass"
+              readonly="readonly"
             />
           </div>
         </div>
@@ -169,6 +164,7 @@ function Form(props) {
               type="number"
               name="calorieIntake"
               id="calorieIntake"
+              readonly="readonly"
             />
           </div>
         </div>
@@ -190,6 +186,7 @@ function Form(props) {
               type="number"
               name="chickenBreast"
               id="chickenBreast"
+              readonly="readonly"
             />
           </div>
         </div>
@@ -203,8 +200,7 @@ function Form(props) {
               type="number"
               name="sweetPotato"
               id="sweetPotato"
-              min={3}
-              max={6}
+              readonly="readonly"
             />
           </div>
         </div>
@@ -218,8 +214,7 @@ function Form(props) {
               type="number"
               name="chickenBreastOnce"
               id="chickenBreastOnce"
-              min={3}
-              max={6}
+              readonly="readonly"
             />
           </div>
         </div>
@@ -232,8 +227,7 @@ function Form(props) {
               type="number"
               name="sweetPotatoOnce"
               id="sweetPotatoOnce"
-              min={3}
-              max={6}
+              readonly="readonly"
             />
           </div>
         </div>
