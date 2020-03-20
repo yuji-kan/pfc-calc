@@ -133,9 +133,7 @@ function Form(props) {
       <div className="container">
         <div className="form-input">
           <div className="form-input">
-            <label htmlFor="leanBodyMass" className="required">
-              除脂肪体重(kg)
-            </label>
+            <label htmlFor="leanBodyMass">除脂肪体重(kg)</label>
             <input
               value={
                 bodyWeight !== ""
@@ -151,7 +149,7 @@ function Form(props) {
         </div>
         <div className="form-input">
           <div className="form-input">
-            <label htmlFor="calorieIntake" className="required">
+            <label htmlFor="calorieIntake">
               おすすめの1日に摂取するタンパク質量(g)
             </label>
             <input
@@ -171,7 +169,7 @@ function Form(props) {
 
         <div className="form-input">
           <div className="form-input">
-            <label htmlFor="chickenBreast" className="required">
+            <label htmlFor="chickenBreast">
               おすすめの1日に摂取する鶏むね肉の量(g)
             </label>
             <input
@@ -193,7 +191,7 @@ function Form(props) {
 
         <div className="form-input">
           <div className="form-input">
-            <label htmlFor="sweetPotato" className="required">
+            <label htmlFor="sweetPotato">
               おすすめの1日に摂取するサツマイモの量(g)
             </label>
             <input
@@ -207,7 +205,7 @@ function Form(props) {
 
         <div className="form-input">
           <div className="form-input">
-            <label htmlFor="chickenBreastOnce" className="required">
+            <label htmlFor="chickenBreastOnce">
               1回に摂取する鶏むね肉の量(g)
             </label>
             <input
@@ -220,7 +218,7 @@ function Form(props) {
         </div>
         <div className="form-input">
           <div className="form-input">
-            <label htmlFor="sweetPotatoOnce" className="required">
+            <label htmlFor="sweetPotatoOnce">
               1回に摂取するサツマイモの量(g)
             </label>
             <input
