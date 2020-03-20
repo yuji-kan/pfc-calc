@@ -4,20 +4,6 @@ import Form from "./components/Form";
 import "./App.css";
 
 // const CALORIE_LOWER_LIMIT = 1.3;
-// const food = {
-//   chicken_breast: {
-//     energy: 108,
-//     protein: 22.3,
-//     fat: 108,
-//     carbo: 0
-//   },
-//   sweet_potato: {
-//     energy: 108,
-//     protein: 22.3,
-//     fat: 108,
-//     carbo: 0
-//   }
-// };
 
 function App() {
   return (
