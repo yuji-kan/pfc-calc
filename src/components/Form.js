@@ -143,7 +143,7 @@ function Form(props) {
               type="number"
               name="leanBodyMass"
               id="leanBodyMass"
-              readonly="readonly"
+              readOnly
             />
           </div>
         </div>
@@ -162,7 +162,7 @@ function Form(props) {
               type="number"
               name="calorieIntake"
               id="calorieIntake"
-              readonly="readonly"
+              readOnly
             />
           </div>
         </div>
@@ -184,7 +184,7 @@ function Form(props) {
               type="number"
               name="chickenBreast"
               id="chickenBreast"
-              readonly="readonly"
+              readOnly
             />
           </div>
         </div>
@@ -194,12 +194,7 @@ function Form(props) {
             <label htmlFor="sweetPotato">
               おすすめの1日に摂取するサツマイモの量(g)
             </label>
-            <input
-              type="number"
-              name="sweetPotato"
-              id="sweetPotato"
-              readonly="readonly"
-            />
+            <input type="number" name="sweetPotato" id="sweetPotato" readOnly />
           </div>
         </div>
 
@@ -212,7 +207,7 @@ function Form(props) {
               type="number"
               name="chickenBreastOnce"
               id="chickenBreastOnce"
-              readonly="readonly"
+              readOnly
             />
           </div>
         </div>
@@ -225,7 +220,7 @@ function Form(props) {
               type="number"
               name="sweetPotatoOnce"
               id="sweetPotatoOnce"
-              readonly="readonly"
+              readOnly
             />
           </div>
         </div>
