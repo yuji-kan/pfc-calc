@@ -1,15 +1,15 @@
-import React from "react";
-import Title from "./components/Title";
-import Form from "./components/Form";
-import "./App.css";
+import React from "react"
+import Title from "./components/Title"
+import Form from "./components/Form"
+import "./App.css"
 
 // const CALORIE_LOWER_LIMIT = 1.3;
 
 function App() {
   return (
     <>
-      <Title title="PFCバランス計算" />
-      <div className="container">
+      <Title title='PCバランス計算' />
+      <div className='container'>
         <Form />
       </div>
       {/*
@@ -62,7 +62,7 @@ function App() {
         />
       </div> */}
     </>
-  );
+  )
 }
 
-export default App;
+export default App
