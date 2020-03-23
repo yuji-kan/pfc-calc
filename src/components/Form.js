@@ -1,20 +1,7 @@
 import React, { useState } from "react"
+import food from "../data"
 
 function Form(props) {
-  const food = {
-    chickenBreast: {
-      calorie: 108,
-      protein: 22.3,
-      fat: 108,
-      carbo: 0
-    },
-    sweetPotato: {
-      calorie: 264,
-      protein: 2.4,
-      fat: 0.4,
-      carbo: 63
-    }
-  }
   // input
   const [basalMetabolicRate, setBasalMetabolicRate] = useState("")
   const [intakeCoefficient, setIntakeCoefficient] = useState("")
@@ -24,9 +11,7 @@ function Form(props) {
   const [mealTimes, setMealTimes] = useState(0)
 
   // output
-  // const [leanBodyMass, setLeanBodyMass] = useState("");
-
-  // submitHandler calc
+  // submitHandler
   const submitHandler = e => {
     e.preventDefault()
     // alert(
@@ -40,7 +25,6 @@ function Form(props) {
       ? parseInt(bodyWeight - bodyWeight * (bodyFat / 100))
       : null
   }
-
   //1日のカロリー摂取量
   const calorieIntakeDay = () => {
     return basalMetabolicRate !== "" && intakeCoefficient !== ""
@@ -51,7 +35,6 @@ function Form(props) {
   const chickenBreastCalorieIntake = () => {
     return bodyWeight !== "" ? leanBodyMass() * proteinCoefficient : ""
   }
-
   //1日のタンパク質を摂取できる鶏むね肉の量(g)
   const chickenBreast = () => {
     return bodyWeight !== ""
@@ -60,27 +43,22 @@ function Form(props) {
         )
       : ""
   }
-
   //1日の鶏むね肉だけのカロリー
   const chickenBreastCalorie = () => {
     return parseInt((chickenBreast() / 100) * food.chickenBreast.calorie)
   }
-
   //タンパク質以外のカロリー(kcal)
   const otherProtainCalorie = () => {
     return parseInt(calorieIntakeDay() - chickenBreastCalorie())
   }
-
   //1日に摂取するサツマイモの量(g)
   const sweetPotato = () => {
     return parseInt((calorieIntakeDay() / food.sweetPotato.calorie) * 100)
   }
-
   //1回に摂取する鶏むね肉の量(g)
   const chickenBreastOnce = () => {
     return mealTimes !== 0 ? parseInt(chickenBreast() / mealTimes) : null
   }
-
   //1回に摂取するサツマイモの量(g)
   const sweetPotatoOnce = () => {
     return mealTimes !== 0 ? parseInt(sweetPotato() / mealTimes) : null
