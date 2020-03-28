@@ -12,4 +12,5 @@ const food = {
     carbo: 63
   }
 }
+
 export default food

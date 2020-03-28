@@ -1,5 +1,7 @@
 import React, { useState } from "react"
-import food from "../data"
+import food from "../data/food"
+// import lists from "../data/lists"
+import List from "./List"
 
 function Form(props) {
   // input
@@ -10,6 +12,16 @@ function Form(props) {
   const [proteinCoefficient, setProteinCoefficient] = useState("")
   const [mealTimes, setMealTimes] = useState(0)
 
+  let wMeal = []
+  let wLeanBodyMass // 除脂肪体重(kg)
+  let wCalorieIntakeDay // 1日のカロリー摂取量(kcal)
+  let wChickenBreastCalorieIntake // おすすめの1日に摂取するタンパク質量(g)
+  let wChickenBreast //1日のタンパク質を摂取できる鶏むね肉の量(g)
+  let wChickenBreastCalorie // 1日の鶏むね肉だけのカロリー
+  let wOtherProtainCalorie // タンパク質以外のカロリー(kcal)
+  let wSweetPotato // 1日に摂取するサツマイモの量(g)
+  let wChickenBreastOnce // 1回に摂取する鶏むね肉の量(g)
+  let wSweetPotatoOnce //  1回に摂取するサツマイモの量(g)
   // output
   // submitHandler
   const submitHandler = e => {
@@ -17,56 +29,87 @@ function Form(props) {
     // alert(
     //   `入力は、${basalMetabolicRate} ${intakeCoefficient} ${bodyWeight} ${basalMetabolicRate} ${bodyFat} ${proteinCoefficient} ${mealTimes}`
     // )
+    // let wLeanBodyMass // 除脂肪体重(kg)
+    // let wCalorieIntakeDay // 1日のカロリー摂取量(kcal)
+    // let wChickenBreastCalorieIntake // おすすめの1日に摂取するタンパク質量(g)
+    // let wChickenBreast //1日のタンパク質を摂取できる鶏むね肉の量(g)
+    // let wChickenBreastCalorie // 1日の鶏むね肉だけのカロリー
+    // let wOtherProtainCalorie // タンパク質以外のカロリー(kcal)
+    // let wSweetPotato // 1日に摂取するサツマイモの量(g)
+    // let wChickenBreastOnce // 1回に摂取する鶏むね肉の量(g)
+    // let wSweetPotatoOnce //  1回に摂取するサツマイモの量(g)
+
+    let wMeal = []
+    wLeanBodyMass = parseInt(bodyWeight - bodyWeight * (bodyFat / 100))
+    wMeal.push({
+      title: "除脂肪体重(kg)",
+      value: wLeanBodyMass
+    })
+    basalMetabolicRate !== "" && intakeCoefficient !== ""
+      ? (wCalorieIntakeDay = basalMetabolicRate * intakeCoefficient)
+      : (wCalorieIntakeDay = 0)
+    wMeal.push({
+      title: "1日のカロリー摂取量(kcal)",
+      value: wCalorieIntakeDay
+    })
+    bodyWeight !== ""
+      ? (wChickenBreast = wChickenBreastCalorieIntake =
+          wLeanBodyMass * proteinCoefficient)
+      : (wChickenBreastCalorieIntake = "")
+    wMeal.push({
+      title: "1おすすめの1日に摂取するタンパク質量(g)",
+      value: wChickenBreastCalorieIntake
+    })
+
+    bodyWeight !== ""
+      ? (wChickenBreast = parseInt(
+          (wChickenBreastCalorieIntake / food.chickenBreast.protein) * 100
+        ))
+      : (wChickenBreast = "")
+    wMeal.push({
+      title: "1日のタンパク質を摂取できる鶏むね肉の量(g)",
+      value: wChickenBreast
+    })
+    wChickenBreastCalorie = parseInt(
+      (wChickenBreast / 100) * food.chickenBreast.calorie
+    )
+    wMeal.push({
+      title: "1日の鶏むね肉だけのカロリー",
+      value: wChickenBreastCalorie
+    })
+    wOtherProtainCalorie = parseInt(wCalorieIntakeDay - wChickenBreastCalorie)
+    wMeal.push({
+      title: "タンパク質以外のカロリー(kcal)",
+      value: wOtherProtainCalorie
+    })
+    wSweetPotato = parseInt(
+      (wCalorieIntakeDay / food.sweetPotato.calorie) * 100
+    )
+    wMeal.push({
+      title: "1日に摂取するサツマイモの量(g)",
+      value: wSweetPotato
+    })
+    mealTimes !== 0
+      ? (wChickenBreastOnce = parseInt(wChickenBreast / mealTimes))
+      : (wChickenBreastOnce = null)
+    wMeal.push({
+      title: "1回に摂取する鶏むね肉の量(g)",
+      value: wChickenBreastOnce
+    })
+    mealTimes !== 0
+      ? (wSweetPotatoOnce = parseInt(wSweetPotato / mealTimes))
+      : (wSweetPotatoOnce = null)
+    wMeal.push({
+      title: "1回に摂取するサツマイモの量(g)",
+      value: wSweetPotatoOnce
+    })
+    console.log(wMeal)
   }
 
-  // 除脂肪体重(kg)
-  const leanBodyMass = () => {
-    return bodyWeight !== ""
-      ? parseInt(bodyWeight - bodyWeight * (bodyFat / 100))
-      : null
-  }
-  //1日のカロリー摂取量
-  const calorieIntakeDay = () => {
-    return basalMetabolicRate !== "" && intakeCoefficient !== ""
-      ? basalMetabolicRate * intakeCoefficient
-      : null
-  }
-  //おすすめの1日に摂取するタンパク質量(g)
-  const chickenBreastCalorieIntake = () => {
-    return bodyWeight !== "" ? leanBodyMass() * proteinCoefficient : ""
-  }
-  //1日のタンパク質を摂取できる鶏むね肉の量(g)
-  const chickenBreast = () => {
-    return bodyWeight !== ""
-      ? parseInt(
-          (chickenBreastCalorieIntake() / food.chickenBreast.protein) * 100
-        )
-      : ""
-  }
-  //1日の鶏むね肉だけのカロリー
-  const chickenBreastCalorie = () => {
-    return parseInt((chickenBreast() / 100) * food.chickenBreast.calorie)
-  }
-  //タンパク質以外のカロリー(kcal)
-  const otherProtainCalorie = () => {
-    return parseInt(calorieIntakeDay() - chickenBreastCalorie())
-  }
-  //1日に摂取するサツマイモの量(g)
-  const sweetPotato = () => {
-    return parseInt((calorieIntakeDay() / food.sweetPotato.calorie) * 100)
-  }
-  //1回に摂取する鶏むね肉の量(g)
-  const chickenBreastOnce = () => {
-    return mealTimes !== 0 ? parseInt(chickenBreast() / mealTimes) : null
-  }
-  //1回に摂取するサツマイモの量(g)
-  const sweetPotatoOnce = () => {
-    return mealTimes !== 0 ? parseInt(sweetPotato() / mealTimes) : null
-  }
   return (
     <>
-      <div className='container'>
-        <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler}>
+        <div className='container'>
           <div className='form-input'>
             <div className='form-input'>
               <label htmlFor='basalMetabolicRate' className='required'>
@@ -159,29 +202,33 @@ function Form(props) {
               />
             </div>
           </div>
-          <button>入力テスト</button>
-        </form>
-      </div>
+          <button>計算</button>
+        </div>
 
-      <div className='container'>
-        <h4>除脂肪体重 : {leanBodyMass()}kg</h4>
-        <h4>1日のカロリー摂取量 : {calorieIntakeDay()}kcal</h4>
+        {/* <div className='container'>
+        <h4>除脂肪体重 : {wLeanBodyMass}kg</h4>
+        <h4>1日のカロリー摂取量 : {wCalorieIntakeDay}kcal</h4>
         <h4>
-          おすすめの1日に摂取するタンパク質量 : {chickenBreastCalorieIntake()}g
+          おすすめの1日に摂取するタンパク質量 : {wChickenBreastCalorieIntake}g
         </h4>
-        <h4>1日のタンパク質を摂取できる鶏むね肉の量 : {chickenBreast()}g</h4>
-        <h4>1日の鶏むね肉だけのカロリー : {chickenBreastCalorie()}kcal</h4>
-        <h4>タンパク質以外で摂取するカロリー : {otherProtainCalorie()}kcal</h4>
-        <h4>1日に摂取するサツマイモの量 : {sweetPotato()}g</h4>
+        <h4>1日のタンパク質を摂取できる鶏むね肉の量 : {wChickenBreast}g</h4>
+        <h4>1日の鶏むね肉だけのカロリー : {wChickenBreastCalorie}kcal</h4>
+        <h4>タンパク質以外で摂取するカロリー : {wOtherProtainCalorie}kcal</h4>
+        <h4>1日に摂取するサツマイモの量 : {wSweetPotato}g</h4>
         <h4>
           食事が1日{mealTimes}回の場合、1回に摂取する鶏むね肉の量 :{" "}
-          {chickenBreastOnce()}g
+          {wChickenBreastOnce}g
         </h4>
         <h4>
           食事が1日{mealTimes}回の場合、1回に摂取するサツマイモの量 :
-          {sweetPotatoOnce()}g
+          {wSweetPotatoOnce}g
         </h4>
-      </div>
+      </div> */}
+
+        <div className='container'>
+          <List list={wMeal} />
+        </div>
+      </form>
     </>
   )
 }
