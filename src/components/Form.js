@@ -130,7 +130,7 @@ function Form(props) {
           <div className='form-input'>
             <div className='form-input'>
               <label htmlFor='intakeCoefficient' className='required'>
-                摂取係数(1.3-1.7)
+                摂取係数(1.3-1.7)ダイエット目的なら低く
               </label>
               <input
                 type='number'
@@ -176,7 +176,7 @@ function Form(props) {
           <div className='form-input'>
             <div className='form-input'>
               <label htmlFor='proteinCoefficient' className='required'>
-                タンパク質摂取係数(2-2.5)
+                タンパク質摂取係数(2-2.5)多め推奨
               </label>
               <input
                 type='number'
@@ -192,7 +192,7 @@ function Form(props) {
           <div className='form-input'>
             <div className='form-input'>
               <label htmlFor='mealTimes' className='required'>
-                1日の食事回数(3-6回)
+                1日の食事回数(3-6回)食事回数は多いのが◎
               </label>
               <input
                 type='number'
