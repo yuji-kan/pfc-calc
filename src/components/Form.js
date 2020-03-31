@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import food from "../data/food"
 
-function Form(props) {
+function Form() {
   // input form
   const [basalMetabolicRate, setBasalMetabolicRate] = useState(0)
   const [intakeCoefficient, setIntakeCoefficient] = useState(0)
