@@ -8,7 +8,7 @@ import "./App.css"
 function App() {
   return (
     <>
-      <Title title='タンパク質炭水化物計算' />
+      <Title title='トレーニー用食事計算機' />
       <div className='container'>
         <Form />
       </div>
