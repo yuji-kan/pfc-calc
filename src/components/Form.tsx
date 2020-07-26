@@ -197,7 +197,7 @@ const Form: React.FC = () => {
                             onChange={inputChange06}
                             placeholder="1日の食事回数(3-6回)"
                         />
-                        <button className="btn">=</button>
+                        <button className="btn">計算する</button>
                     </div>
 
                     <div className="output">
