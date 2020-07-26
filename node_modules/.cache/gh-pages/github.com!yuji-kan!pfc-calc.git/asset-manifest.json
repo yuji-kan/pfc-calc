@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/pfc-calc/static/css/main.5c324e5b.chunk.css",
+    "main.js": "/pfc-calc/static/js/main.3ead46de.chunk.js",
+    "main.js.map": "/pfc-calc/static/js/main.3ead46de.chunk.js.map",
+    "runtime-main.js": "/pfc-calc/static/js/runtime-main.64dd5a1e.js",
+    "runtime-main.js.map": "/pfc-calc/static/js/runtime-main.64dd5a1e.js.map",
+    "static/js/2.716752b6.chunk.js": "/pfc-calc/static/js/2.716752b6.chunk.js",
+    "static/js/2.716752b6.chunk.js.map": "/pfc-calc/static/js/2.716752b6.chunk.js.map",
+    "index.html": "/pfc-calc/index.html",
+    "precache-manifest.b6683e0b0c5742175702cca7d6327a93.js": "/pfc-calc/precache-manifest.b6683e0b0c5742175702cca7d6327a93.js",
+    "service-worker.js": "/pfc-calc/service-worker.js",
+    "static/css/main.5c324e5b.chunk.css.map": "/pfc-calc/static/css/main.5c324e5b.chunk.css.map",
+    "static/js/2.716752b6.chunk.js.LICENSE.txt": "/pfc-calc/static/js/2.716752b6.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/pfc-calc/static/media/muesli-3186256_1920.9003a633.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.64dd5a1e.js",
+    "static/js/2.716752b6.chunk.js",
+    "static/css/main.5c324e5b.chunk.css",
+    "static/js/main.3ead46de.chunk.js"
+  ]
+}
